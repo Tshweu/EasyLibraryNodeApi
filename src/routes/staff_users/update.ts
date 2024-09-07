@@ -13,8 +13,8 @@ router.put('/:id',async (req: Request,res: Response)=>{
             email: req.body.email,
             password: req.body.password,
         }
-        let updatedUser = await StaffUser.findByIdAndUpdate<IStaffUser>(id,user,{new: true});
-        res.send(updatedUser).status(200);
+        let updated_user = await StaffUser.findByIdAndUpdate<IStaffUser>(id,user,{new: true});
+        res.send(updated_user).status(200);
     } catch (err) {
         res.send(err.message).status(500);
     }

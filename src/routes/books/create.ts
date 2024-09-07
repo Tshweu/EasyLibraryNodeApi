@@ -6,7 +6,7 @@ const router: Router = Router();
 
 router.post('', async (req: Request, res: Response) => {
   try {
-    const newBook: IBook = {
+    const new_book: IBook = {
       title: req.body.title,
       isbn: req.body.isbn,
       publisher: req.body.publisher,
@@ -16,7 +16,7 @@ router.post('', async (req: Request, res: Response) => {
       condition: req.body.condition,
       date: new Date().toLocaleDateString(),
     };
-    const book = await Book.create<IBook>(newBook);
+    const book = await Book.create<IBook>(new_book);
     res.send(book).status(201);
   } catch (err) {
     console.log(err);

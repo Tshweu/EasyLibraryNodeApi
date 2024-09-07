@@ -1,20 +1,20 @@
 import { Router, Request, Response } from 'express';
 import { IStaffUser } from '../../interfaces/IStaffUser';
 import { StaffUser } from '../../models/staffUser';
-
+import { hashPassword } from '../../helpers/encrypt';
 const router: Router = Router();
 
 router.post('', async (req: Request, res: Response) => {
   try {
-    const newUser: IStaffUser = {
+    const new_user: IStaffUser = {
       name: req.body.name,
       surname: req.body.surname,
       phone_number: req.body.phone_number,
       email: req.body.email,
-      password: req.body.password,
+      password: await hashPassword(req.body.password),
     };
-    const user = await StaffUser.create<IStaffUser>(newUser);
-    res.send(user).status(201);
+    const user = await StaffUser.create<IStaffUser>(new_user);
+    res.send('success').status(201);
   } catch (err) {
     console.log(err);
     res.send(err.message).status(500);

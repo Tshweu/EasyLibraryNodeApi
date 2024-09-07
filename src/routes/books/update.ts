@@ -6,7 +6,7 @@ const router : Router = Router();
 router.put('/:id',async (req: Request,res: Response)=>{
     try {
         const id = req.params.id;
-        const newBook: IBook = {
+        const new_book: IBook = {
             title: req.body.title,
             isbn: req.body.isbn,
             publisher: req.body.publisher,
@@ -15,7 +15,7 @@ router.put('/:id',async (req: Request,res: Response)=>{
             status: req.body.status,
             condition: req.body.condition,
         }
-        let book = await Book.findByIdAndUpdate<IBook>(id,newBook,{new: true});
+        let book = await Book.findByIdAndUpdate<IBook>(id,new_book,{new: true});
         res.send(book).status(200);
     } catch (err) {
         res.send(err.message).status(500);

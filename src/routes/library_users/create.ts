@@ -6,13 +6,13 @@ const router: Router = Router();
 
 router.post('', async (req: Request, res: Response) => {
   try {
-    const newUser: IUser = {
+    const new_user: IUser = {
       name: req.body.name,
       surname: req.body.surname,
       phone_number: req.body.phone_number,
       email: req.body.email,
     };
-    const user = await User.create<IUser>(newUser);
+    const user = await User.create<IUser>(new_user);
     res.send(user).status(201);
   } catch (err) {
     console.log(err);
