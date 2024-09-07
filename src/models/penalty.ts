@@ -1,7 +1,7 @@
 import { Date, model, ObjectId, Schema } from "mongoose";
 import { IPenalty } from "../interfaces/IPenalty";
 
-const penalty_schema = new Schema<IPenalty>({
+export const penalty_schema = new Schema<IPenalty>({
     description: {type: String, required: true},
     date: {type: String, required: true},
     cost: {type: Number, required: true}
