@@ -1,14 +1,14 @@
-import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
-import mongoose from 'mongoose';
-import app from './app';
+import express, { Express, Request, Response } from "express";
+import dotenv from "dotenv";
+import mongoose from "mongoose";
+import app from "./app";
 
 dotenv.config();
 
 const port = process.env.PORT || 3000;
 
-app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
+app.get("/", (req: Request, res: Response) => {
+  res.send("Express + TypeScript Server");
 });
 
 const dbHost = process.env.DB_HOST;
@@ -22,7 +22,7 @@ mongoose
   )
   .then((res) => {
     if (res) {
-      console.log(`Database connection succeffully to ${dbName}`);
+      console.log(`Database connection successfully to ${dbName}`);
       app.listen(port, () => {
         console.log(`[server]: Server is running at http://localhost:${port}`);
       });
@@ -31,5 +31,3 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
-

@@ -16,6 +16,9 @@ router.get('/:id', async (req: Request, res: Response) => {
   try {
     const id = req.params.id;
     const book = await Book.findById<IBook>(id);
+    if(!book){
+      return res.send('Book not found').status(404);
+    }
     res.send(book).status(200);
   } catch (err) {
     res.send(err.message).status(500);

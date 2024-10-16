@@ -3,5 +3,7 @@ export interface IUser{
     surname: string,
     phone_number: string,
     email: string,
+    // status: string
+    //id_number: string
 }
 

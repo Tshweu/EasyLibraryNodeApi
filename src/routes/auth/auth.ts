@@ -11,6 +11,7 @@ const key = process.env.KEY;
 const router: Router = Router();
 
 router.post('',async (req: Request, res: Response)=>{
+    console.log(req.body);
     let login_data: IAuth = {
         username : req.body.username,
         password : req.body.password

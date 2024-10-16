@@ -9,7 +9,8 @@ export const book_schema = new Schema<IBook>({
     publisher: {type: String, required: true},
     status: {type: String, required: true},
     condition: {type: String, required: true},
-    date: { type: String, required: true}
+    date: { type: String, required: true},
+    // member: {}
 });
 
 export const Book = model('Book',book_schema);

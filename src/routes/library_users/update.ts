@@ -11,6 +11,7 @@ router.put('/:id',async (req: Request,res: Response)=>{
             surname: req.body.surname,
             phone_number: req.body.phone_number,
             email: req.body.email,
+            // status: req.body.status
         }
         let updatedUser = await User.findByIdAndUpdate<IUser>(id,user,{new: true});
         res.send(updatedUser).status(200);
